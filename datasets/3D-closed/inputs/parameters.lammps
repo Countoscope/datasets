@@ -1,0 +1,21 @@
+# LAMMPS parameters 
+
+# Random numbers 
+variable rdm1 equal 15314
+variable rdm2 equal 80244
+variable rdm3 equal 18834
+
+# Fluid parameters 
+variable mass equal 1.0 # gram / mole
+variable sigma equal 3 # angstrom
+variable epsilon equal 0.1 # kilocalorie / mole
+
+# Simulation parameters 
+variable dt equal 2.3189715528866484 # femtosecond
+variable n_part equal 190
+variable L equal 30 # angstrom
+variable L_up equal 15.0 # angstrom
+variable L_down equal -15.0 # angstrom
+variable cut_off equal 3.367386144928119 # angstrom
+variable T equal 50.322 # kelvin
+variable damp_langevin equal 4.637943105773297 # femtosecond
