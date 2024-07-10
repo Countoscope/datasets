@@ -1,0 +1,38 @@
+# LAMMPS input script
+
+include parameters.lammps
+
+units real
+dimension 2
+atom_style full
+pair_style lj/cut ${cut_off}
+boundary p p p
+
+region simulation_box block ${L_down} ${L_up} ${L_down} ${L_up} -0.5 0.5
+create_box 1 simulation_box
+create_atoms 1 random ${n_part} ${rdm1} simulation_box
+
+mass 1 ${mass}
+pair_coeff 1 1 ${epsilon} ${sigma}
+
+thermo 100
+
+minimize 1.0e-4 1.0e-6 1000 10000
+reset_timestep 0
+
+velocity all create ${T} ${rdm2} rot yes mom yes dist gaussian
+fix mynve all nve
+fix mylan all langevin ${T} ${T} ${damp_langevin} ${rdm3}
+fix myenf all enforce2d
+
+timestep ${dt}
+run 10000
+reset_timestep 0
+
+#dump mydmp_lammpstrj all atom 50 trajectory.lammpstrj
+dump mydmp_xyz all xyz 50 ../trajectory.xyz
+thermo 5000
+
+run 50000
+
+write_data topology.data nocoeff nofix nolabelmap
