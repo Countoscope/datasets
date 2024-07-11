@@ -28,7 +28,7 @@ timestep ${dt}
 run 10000
 reset_timestep 0
 
-#dump mydmp_lammpstrj all atom 50 trajectory.lammpstrj
+dump mydmp_xtc all xtc 50 ../trajectory.xtc
 dump mydmp_xyz all xyz 50 ../trajectory.xyz
 thermo 5000
 

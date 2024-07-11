@@ -30,7 +30,7 @@ run 10000
 reset_timestep 0
 
 region measurement_box block ${S_down} ${S_up} ${S_down} ${S_up} -0.5 0.5
-dump mydmp_lammpstrj all custom 50 ../trajectory.lammpstrj id x y
+dump mydmp_lammpstrj all custom 50 ../trajectory.lammpstrj x y
 #dump mydmp_xyz all xyz 50 ../trajectory.xyz
 dump_modify mydmp_lammpstrj region measurement_box
 thermo 5000
