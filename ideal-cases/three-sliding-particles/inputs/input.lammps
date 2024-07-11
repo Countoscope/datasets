@@ -1,0 +1,35 @@
+# three particles traveling in a line in a 3 by 1 by 1 box
+
+variable mass equal 1.0 # gram / mole
+variable sigma equal 3 # angstrom
+variable epsilon equal 0.1 # kilocalorie / mole
+
+variable dt equal 2.319 # femtosecond
+variable cut_off equal 3.367 # angstrom
+variable dumping equal 5 # no units
+
+units real
+dimension 3
+atom_style full
+pair_style lj/cut ${cut_off}
+boundary p p p
+
+region simulation_box block 0 30 0 10 0 10 # tofix: must use "symmetrize" 
+create_box 1 simulation_box
+create_atoms 1 single 5 5 5 
+create_atoms 1 single 15 5 5
+create_atoms 1 single 25 5 5 
+
+mass 1 ${mass}
+pair_coeff 1 1 ${epsilon} ${sigma}
+
+thermo 10000
+
+velocity all set 0.1 0 0 # A/fs
+fix mynve all nve
+timestep ${dt}
+
+dump mydmp_xyz all xyz ${dumping} ../dump.xyz
+dump mydmp_lammpstrj all custom ${dumping} ../dump.lammpstrj x y z
+
+run 10000
