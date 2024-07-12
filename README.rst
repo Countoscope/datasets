@@ -1,7 +1,9 @@
 Datasets for the countoscope
 ============================
 
-This repository is used as a submodule of [main countoscope repository](https://github.com/Countoscope/countoscope), where the trajectory are used to test the Python code.
+This repository is used as a submodule of main `countoscope`_, where the trajectory are used to test the Python code.
+
+.. _countoscope: https://github.com/Countoscope/countoscope
 
 MD trajectories
 ---------------
@@ -18,7 +20,7 @@ The trajectories were generated using LAMMPS. Atoms are interacting through a WC
 Home-made trajectories
 ----------------------
 
-A trajectory in a homemade text format is provided. It starts like:
+A trajectory in a homemade text format is provided. The first 2 columns are the X, Y coordinates, and the 3rd is the frame id. It starts like:
 
 .. code:: bash
 
@@ -32,4 +34,5 @@ A trajectory in a homemade text format is provided. It starts like:
     70.50447852 52.47750822 0
     44.48873150 48.93966159 0
     51.18881667 38.76888911 0
+    (...)
 
