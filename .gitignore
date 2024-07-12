@@ -1,1 +1,5 @@
+# ignore lammps log file:
 **/log.lammps
+
+# ignore the example_dataset.xyz file created by the converter:
+brownian-particles/2D-homemade/example_dataset.xyz
