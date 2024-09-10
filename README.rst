@@ -1,9 +1,28 @@
 Datasets for the countoscope
 ============================
 
-This repository is used as a submodule of main `countoscope`_, where the trajectory are used to test the Python code.
+This repository is used as a submodule of main `countoscope`_. The
+trajectory files are used to test the Python code.
 
 .. _countoscope: https://github.com/Countoscope/countoscope
+
+Git LFS
+-------
+
+The trajectory files are stored as Git Large File Storage (LFS). Make sure to
+install it using:
+
+.. code:: bash
+
+    git lfs install
+
+If you want a particular type of file to be stored as LFS, type:
+
+.. code:: bash
+
+    git lfs track "*.psd"
+
+This way, all future `.psd` files will be stored by Git as LFS.
 
 MD trajectories
 ---------------
